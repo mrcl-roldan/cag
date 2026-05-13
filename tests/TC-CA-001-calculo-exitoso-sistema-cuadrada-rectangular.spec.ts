@@ -38,7 +38,7 @@ test.describe('Formulario de ciclos agrícolas - Calculadora de plantas', () => 
       .getByRole('button')
       .click();
 
-    // ─── Assert: verificar que el campo muestra 2000 ───────────────
+    // ─── Assert: verificar que el campo muestra 2000 ─────────────── prueba
     const campoPlantas = page.locator('mat-form-field')
       .filter({ hasText: 'Número de plantas' })
       .getByRole('textbox');
