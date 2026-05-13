@@ -5,9 +5,10 @@ test.describe('Formulario de ciclos agrícolas - Calculadora de plantas', () => 
   test('TC-CA-001-calculo-exitoso-sistema-cuadrada-rectangular', async ({ page }) => {
 
     // ─── Arrange: navegar al formulario ───────────────────────────
-    await page.goto('https://dev.app.itague.co/planning/agricultural-cycles/new');
+    await page.goto('/planning/agricultural-cycles/new', { waitUntil: 'domcontentloaded' });
+    await page.getByRole('combobox', { name: 'Cultivo - Variedad' }).waitFor({ state: 'visible' });
 
-    // ─── Act: llenar los campos previos requeridos ─────────────Shirley
+    // ─── Act: llenar los campos previos requeridos ─────────────
 
     // Cultivo - Variedad
     await page.getByRole('combobox', { name: 'Cultivo - Variedad' }).locator('svg').click();

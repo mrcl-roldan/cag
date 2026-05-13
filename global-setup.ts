@@ -7,28 +7,26 @@ dotenv.config();
 async function globalSetup(config: FullConfig) {
   const { baseURL } = config.projects[0].use;
   const browser = await chromium.launch({ headless: false });
-  const page = await browser.newPage();
+  const context = await browser.newContext();
+  const page = await context.newPage();
 
   await page.goto(`${baseURL}/sign-in`, { waitUntil: 'networkidle' });
 
   await page.locator('input[id="email"]').fill(process.env.USER_EMAIL!);
   await page.locator('input[id="password"]').fill(process.env.USER_PASSWORD!);
 
-  // Esperar a que el botón exista en el DOM primero
-  await page.waitForSelector('button[mat-flat-button]', { state: 'visible', timeout: 20_000 });
-  await page.waitForTimeout(1000);
-
   const botonLogin = page.locator('button[mat-flat-button]');
-  await botonLogin.dispatchEvent('click');
+  await botonLogin.waitFor({ state: 'visible', timeout: 20_000 });
+  await botonLogin.click();
 
-  await page.goto(`${baseURL}/dashboard`, { waitUntil: 'networkidle' });
+  // Esperar a que el login complete y la app redirija al dashboard
+  await page.waitForURL(`${baseURL}/dashboard`, { timeout: 30_000 });
+  await page.waitForLoadState('networkidle');
 
   if (!fs.existsSync('.auth')) fs.mkdirSync('.auth');
-  await page.context().storageState({ path: '.auth/user.json' });
+  await context.storageState({ path: '.auth/user.json' });
 
   await browser.close();
 }
 
 export default globalSetup;
-
-//prueba
