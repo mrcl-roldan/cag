@@ -8,7 +8,7 @@ export class CiclosPage {
   }
 
   async goto() {
-    await this.page.goto('/ciclos-agricolas/nuevo');  // ajustar ruta real
+    await this.page.goto('https://dev.app.itague.co/planning/agricultural-cycles/new');  // ajustar ruta real
   }
 
   // Ejemplo selector dinámico (cultivo)

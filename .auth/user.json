@@ -6,7 +6,7 @@
       "localStorage": [
         {
           "name": "ngx-webstorage|itague-accesstoken",
-          "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkY2ViNGRhNS1lMDM4LTQ5ZTQtYTkzMS01N2ViYTI5N2M0YjkiLCJidXNpbmVzc1VuaXRHdWlkIjoiYzM4NmIyNTYtYmJkMi00OWU4LWE5OTgtMmVmZDg4MWYwNmUxIiwiYnVzaW5lc3NVbml0VHlwZSI6IkZhcm0iLCJ0b3BMZXZlbEJ1c2luZXNzVW5pdEd1aWQiOiIiLCJyb2xlc0lkcyI6Ijg2YTNmNzJmLWNhYTUtNGM5My1iOGU0LWQ5NGVlYjU4MzZhMiIsImV4cCI6MTc3ODU0OTA3MX0.H0bmbD9boITPQgStJd7KnVjQBcn2E80rkchq-bforDA\""
+          "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkY2ViNGRhNS1lMDM4LTQ5ZTQtYTkzMS01N2ViYTI5N2M0YjkiLCJidXNpbmVzc1VuaXRHdWlkIjoiYzM4NmIyNTYtYmJkMi00OWU4LWE5OTgtMmVmZDg4MWYwNmUxIiwiYnVzaW5lc3NVbml0VHlwZSI6IkZhcm0iLCJ0b3BMZXZlbEJ1c2luZXNzVW5pdEd1aWQiOiIiLCJyb2xlc0lkcyI6Ijg2YTNmNzJmLWNhYTUtNGM5My1iOGU0LWQ5NGVlYjU4MzZhMiIsImV4cCI6MTc3ODY0NjcxMn0.jubL8xl-HhxID8iZYY09QFK2hPa2bQxOxCPOG8iG378\""
         },
         {
           "name": "ngx-webstorage|itague-rememberme",
@@ -18,7 +18,7 @@
         },
         {
           "name": "ngx-webstorage|itague-refreshtoken",
-          "value": "\"TXZ6MElaSUVCTWxocFUza3FvUnhjLzZaVDF4TzB0OEd5cXRTQTNweE1JR3RuOGtxakRqZFpxdXIza2VmYlJ1U1FSekZUcGh6K0k2elRaTlBOalExUmc9PQ\""
+          "value": "\"Z3Foelh4cDMxSS8za2pod2ozTXpURTFsSFJucy9TUk5Nd1cwSHF3SUpUdXpRdThCOWtORDdBWFVGYzh0TEhRQXJ6UVpIMTQ5ZHlCUkZocytsTWdQTUE9PQ\""
         }
       ]
     }

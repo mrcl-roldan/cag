@@ -3,14 +3,12 @@ import { CiclosPage } from '../pages/CiclosPage';
 
 test.describe('Formulario de ciclos agrícolas - Calculadora de plantas', () => {
 
-  test('TC-CA-001-calculo_exitoso_con_sistema_cuadrada_rectangular', async ({ page }) => {
+  test('TC-CA-001-calculo-exitoso-sistema-cuadrada-rectangular', async ({ page }) => {
 
     // ─── Arrange: navegar al formulario ───────────────────────────
-    const ciclosPage = new CiclosPage(page);
+    //const ciclosPage = new CiclosPage(page);
 
-    await page.getByText('Planeación').click();
-    await page.getByText('Ciclos agrícolas').click();
-    await page.getByRole('button', { name: 'Agregar' }).click();
+    await page.goto('https://dev.app.itague.co/planning/agricultural-cycles/new');
 
     // ─── Act: llenar los campos previos requeridos ─────────────────
 

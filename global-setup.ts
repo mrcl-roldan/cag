@@ -21,7 +21,7 @@ async function globalSetup(config: FullConfig) {
   const botonLogin = page.locator('button[mat-flat-button]');
   await botonLogin.dispatchEvent('click');
 
-  await page.waitForURL('https://dev.app.itague.co/dashboard', { timeout: 20_000 });
+  await page.goto(`${baseURL}/dashboard`, { waitUntil: 'networkidle' });
 
   if (!fs.existsSync('.auth')) fs.mkdirSync('.auth');
   await page.context().storageState({ path: '.auth/user.json' });
