@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import { CiclosPage } from '../pages/CiclosPage';
 
 test.describe('Formulario de ciclos agrícolas - Calculadora de plantas', () => {
 
@@ -46,5 +45,4 @@ test.describe('Formulario de ciclos agrícolas - Calculadora de plantas', () => 
 
     await expect(campoPlantas).toHaveValue('2000');
   });
-
 });
