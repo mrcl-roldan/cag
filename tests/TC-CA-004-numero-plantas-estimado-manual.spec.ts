@@ -5,7 +5,7 @@ test.describe('Formulario de ciclos agrícolas - Ingreso de plantas manual', () 
   test('TC-CA-004-numero-plantas-estimado-manual', async ({ page }) => {
 
     // ─── Arrange: navegar al formulario ───────────────────────────
-    await page.goto('/planning/agricultural-cycles/new', { waitUntil: 'domcontentloaded' });
+    await page.goto('/planning/agricultural-cycles/new', { waitUntil: 'networkidle' });
     await page.getByRole('combobox', { name: 'Cultivo - Variedad' }).waitFor({ state: 'visible' });
 
     // ─── Act: llenar los campos previos requeridos ─────────────
