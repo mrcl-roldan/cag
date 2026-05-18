@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Formulario de ciclos agrícolas - Calculadora de plantas', () => {
 
-  test('TC-CA-001-calculo-exitoso-sistema-cuadrada-rectangular', async ({ page }) => {
+  test('TC-CA-002-calculo-exitoso-numero-plantas-sistema-tresbolillo', async ({ page }) => {
 
     // ─── Arrange: navegar al formulario ───────────────────────────
     await page.goto('/planning/agricultural-cycles/new', { waitUntil: 'domcontentloaded' });
