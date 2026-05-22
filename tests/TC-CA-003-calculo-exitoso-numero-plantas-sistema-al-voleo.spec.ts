@@ -1,49 +1,19 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../fixtures/auth.fixture';
+import { CICLOS_DATA, PLANTAS_ESPERADAS } from '../utils/test-data';
 
-test.describe('Formulario de ciclos agrícolas - Calculadora de plantas', () => {
+test.describe('Calculadora de plantas - Sistema al voleo', () => {
 
-  test('TC-CA-003-calculo-exitoso-sistema-al-voleo', async ({ page }) => {
+  test('TC-CA-003-calculo-exitoso-sistema-al-voleo', async ({ ciclosPage }) => {
 
-    // ─── Arrange: navegar al formulario ───────────────────────────
-    await page.goto('/planning/agricultural-cycles/new', { waitUntil: 'domcontentloaded' });
-    await page.getByRole('combobox', { name: 'Cultivo - Variedad' }).waitFor({ state: 'visible' });
+    // Arrange
+    await ciclosPage.navegarANuevoCiclo();
 
-    // ─── Act: llenar los campos previos requeridos ─────────────
+    // Act
+    await ciclosPage.llenarCamposBase(CICLOS_DATA.AJI_AL_VOLEO);
+    await ciclosPage.calcularNumeroPlantas();
 
-    // Cultivo - Variedad
-    await page.getByRole('combobox', { name: 'Cultivo - Variedad' }).locator('svg').click();
-    await page.getByRole('option', { name: 'Ají - Ají lulito' }).click();
-
-    // Área de producción
-    await page.getByRole('combobox', { name: 'Área de producción' }).locator('path').click();
-    await page.getByText('Cultivo de mango').click();
-
-    // Superficie del área: valor + cambio de unidad a Hectárea(s)
-    await page.getByRole('textbox', { name: 'Superficie del área' }).fill('0,608');
-    await page.getByRole('combobox', { name: 'Superficie del área Metro(s)' }).locator('path').click();
-    await page.getByText('Hectárea(s)').click();
-
-    // Sistema de siembra — campo que habilita la calculadora
-    await page.getByRole('combobox', { name: 'Sistema de siembra' }).locator('svg').click();
-    await page.getByText('Al voleo').click();
-
-    // Distancia entre surcos
-    await page.getByRole('textbox', { name: 'Distancia entre surcos' }).fill('1,6');
-
-    // Distancia entre plantas
-    await page.getByRole('textbox', { name: 'Distancia entre plantas' }).fill('1,9');
-
-    // Clic en el ícono de calculadora del campo "Número de plantas"
-    await page.locator('mat-form-field')
-      .filter({ hasText: 'Número de plantas' })
-      .getByRole('button')
-      .click();
-
-    // ─── Assert: verificar que el campo muestra 2000 ─────────────── prueba
-    const campoPlantas = page.locator('mat-form-field')
-      .filter({ hasText: 'Número de plantas' })
-      .getByRole('textbox');
-
-    await expect(campoPlantas).toHaveValue('2000');
+    // Assert
+    await expect(ciclosPage.campoPlantas).toHaveValue(PLANTAS_ESPERADAS.AL_VOLEO);
   });
+
 });
