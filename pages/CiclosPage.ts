@@ -75,7 +75,7 @@ export class CiclosPage {
 
   async seleccionarFechaFinalizacion(fechaLabel: string): Promise<void> {
     await getMatFormField(this.page, 'Fecha estimada de finalización').getByLabel('Open calendar').click();
-    await this.page.getByRole('button', { name: fechaLabel }).click();
+    await this.page.getByRole('button', { name: fechaLabel, exact: true }).click();
   }
 
   /** Rellena la fecha de siembra escribiendo directamente en el textbox (sin calendario). */
