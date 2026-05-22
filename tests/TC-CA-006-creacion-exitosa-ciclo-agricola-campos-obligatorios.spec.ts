@@ -5,7 +5,7 @@ test.describe('Formulario de ciclos agrícolas - Creación exitosa', () => {
   test('TC-CA-006-creacion-exitosa-ciclo-agricola-campos-obligatorios', async ({ page }) => {
 
     // ─── Arrange: navegar al formulario desde el menú ───────────────────────────
-    await page.goto('/planning/agricultural-cycles', { waitUntil: 'networkidle' });
+    await page.goto('/planning/agricultural-cycles', { waitUntil: 'domcontentloaded' });
     await page.getByRole('button', { name: 'Agregar' }).click();
     await page.getByRole('combobox', { name: 'Cultivo - Variedad' }).waitFor({ state: 'visible' });
 

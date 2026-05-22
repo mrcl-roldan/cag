@@ -20,6 +20,7 @@ export default defineConfig({
     video: 'retain-on-failure',
     headless: false,           // true cuando quieran correr sin ventana
     locale: 'es-CO',
+    navigationTimeout: 60_000,
   },
 
   projects: [

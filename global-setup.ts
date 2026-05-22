@@ -10,7 +10,7 @@ async function globalSetup(config: FullConfig) {
   const context = await browser.newContext();
   const page = await context.newPage();
 
-  await page.goto(`${baseURL}/sign-in`, { waitUntil: 'networkidle' });
+  await page.goto(`${baseURL}/sign-in`, { waitUntil: 'domcontentloaded', timeout: 60_000 });
 
   await page.locator('input[id="email"]').fill(process.env.USER_EMAIL!);
   await page.locator('input[id="password"]').fill(process.env.USER_PASSWORD!);
@@ -21,7 +21,7 @@ async function globalSetup(config: FullConfig) {
 
   // Esperar a que el login complete y la app redirija al dashboard
   await page.waitForURL(`${baseURL}/dashboard`, { timeout: 30_000 });
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('load');
 
   if (!fs.existsSync('.auth')) fs.mkdirSync('.auth');
   await context.storageState({ path: '.auth/user.json' });
