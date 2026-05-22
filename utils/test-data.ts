@@ -54,7 +54,7 @@ export const PLANTAS_ESPERADAS = {
 
 export const FECHAS = {
   SIEMBRA_TC006:      '1 de mayo de 2026',
-  FINALIZACION_TC006: '17 de mayo de',
+  FINALIZACION_TC006: '17 de mayo de 2026',
   SIEMBRA_TC008:      '2 de mayo de 2026',
   FINALIZACION_TC008: '3 de mayo de 2026',
   SIEMBRA_TC007_INPUT: '01/04/2023',
@@ -69,7 +69,7 @@ export const PRODUCCION = {
 // ─── Mensajes de UI ────────────────────────────────────────────────────────────
 
 export const MENSAJES = {
-  EXITO_CICLO: 'La información del ciclo agrícola se ha guardado de forma exitosa',
+  EXITO_CICLO: 'La información del ciclo agrícola se ha guardado de forma exitosa.',
 } as const;
 
 // ─── Patrones de código generado ──────────────────────────────────────────────
