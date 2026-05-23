@@ -13,12 +13,14 @@ export class CiclosPage {
 
   async navegarANuevoCiclo(): Promise<void> {
     await this.page.goto('/planning/agricultural-cycles/new', { waitUntil: 'domcontentloaded' });
+    await this.page.locator('fuse-loading-bar .overlay').waitFor({ state: 'hidden' });
     await this.page.getByRole('combobox', { name: 'Cultivo - Variedad' }).waitFor({ state: 'visible' });
   }
 
   /** Navega al formulario desde la vista de listado (botón Agregar). */
   async navegarDesdeListado(): Promise<void> {
     await this.page.goto('/planning/agricultural-cycles', { waitUntil: 'domcontentloaded' });
+    await this.page.locator('fuse-loading-bar .overlay').waitFor({ state: 'hidden' });
     await this.page.getByRole('button', { name: 'Agregar' }).click();
     await this.page.getByRole('combobox', { name: 'Cultivo - Variedad' }).waitFor({ state: 'visible' });
   }
